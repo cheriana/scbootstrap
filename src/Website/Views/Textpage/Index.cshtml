@@ -1,0 +1,25 @@
+﻿@model Textpage
+         
+@* This extension methods @Html.FieldFor(Model, m => m.Title) assume your Model has got a property
+named Id (Guid) mappping to the Sitecore item Id and the Propery name matches with the field name
+You can also use @Html.FieldFor(Model.Id, "Title") and @Html.FieldFor(Model, "Title"), or simply
+@Html.Raw(Model.Title) but inline editing won't work with the last option. *@
+
+<div class="main-content">         
+  <div class="page-header">
+    <h2>@Html.FieldFor(Model, m => m.Title)</h2>
+    <blockquote>@Html.FieldFor(Model, m => m.Teaser)</blockquote>
+  </div>
+  <div class="row">
+    <section class="span9" role="main">
+      @Html.Sitecore().Controller("Common", "Breadcrumb")
+      <div>@Html.FieldFor(Model, m => m.Content)</div>
+    </section>
+    <aside class="span3" role="complementary">
+      @Html.Sitecore().Controller("Textpage", "SideNavigation")
+    </aside>
+  </div>
+</div>
+
+
+

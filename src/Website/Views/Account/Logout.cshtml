@@ -1,0 +1,20 @@
+﻿@model ContactForm
+    
+<div class="main-content">         
+  <div class="hero-unit">
+    <h2>Title</h2>
+    <p>Teaser</p>
+  </div>
+  <div class="row">
+    <section class="span9" role="main">
+      @Html.Sitecore().Controller("Common", "Breadcrumb")
+      <div>You're logged in</div>
+      <div class="form-actions">
+      <a href="@Url.RouteUrl("Sitecore", new {logout = true})" class="btn btn-primary">Logout</a>
+      </div>
+    </section>
+    <aside class="span3" role="complementary">
+      
+    </aside>
+  </div>
+</div>

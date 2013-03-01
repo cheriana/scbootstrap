@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TopNavigation>
+
+<div class="navbar-wrapper">
+  <div class="container">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="@ViewBag.StartUrl">Sitecore Bootstrap</a>
+        <nav role="navigation" class="nav-collapse collapse">
+          <ul class="nav">
+            @foreach (var item in Model.Where(i => !i.HideNavi)) {
+              var active = item.Url.ContainsUrl((string)ViewBag.PathInfo) ? "active" : string.Empty;
+              if (item.Children.Any())
+              {
+                <li class="dropdown @active">
+                  <a href="@item.Url" class="dropdown-toggle">@item.MenuTitle <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    @foreach (var sub in item.Children.Where(i => !i.HideNavi))
+                    {
+                      <li><a href="@sub.Url">@sub.MenuTitle</a></li>
+                    }
+                  </ul>
+                </li>
+              }
+              else
+              {
+                <li class="@active">
+                  <a href="@item.Url">@item.MenuTitle</a>
+                </li>
+              }
+            }
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

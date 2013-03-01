@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Navigation>
+@if (Model.Any())
+{
+  <ul class="breadcrumb">
+  @foreach (var item in Model) {
+    if (item.Url.Contains(ViewBag.PathInfo)) {
+      <li class="active">@item.MenuTitle</li>
+    }
+    else {
+      <li><a href="@item.Url">@item.MenuTitle</a> <span class="divider">/</span></li>
+    }
+  }
+  </ul>
+}

@@ -1,0 +1,5 @@
+﻿Thanks for yor message
+
+Hi <%Name%>
+Thanks for contacting us, we will get in touch with you as soon as possible
+My company

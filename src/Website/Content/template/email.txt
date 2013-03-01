@@ -1,0 +1,7 @@
+﻿Thanks for contacting us
+
+Hi, the contact form in your website has been filled in on <%Date%> at <%Time%>
+Name: <%Name%>
+Address: <%AddressLine1%>, <%AddressLine2%>
+Email: <%Email%>
+Enquiry: <%Enquiry%>

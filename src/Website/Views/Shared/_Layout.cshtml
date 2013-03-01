@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    @Html.Sitecore().ViewRendering("/Views/Common/Meta.cshtml")
+    @Html.Raw(Bundle.Css()
+      .Add("~/Content/css/bootstrap.css")
+      .Add("~/Content/css/bootstrap-responsive.css")
+      .Add("~/Content/css/prettify.css")
+      .Add("~/Content/css/app.css")
+      .Render("~/Content/combined/bundle.css"))
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->  </head>
+  <body>
+    <div id="wrap">
+      <!--[if lt IE 9]><div class="alert alert-warning"><p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p></div><![endif]-->
+      @Html.Sitecore().Controller("Common", "Navigation")
+      @Html.Sitecore().Placeholder("top")
+      <div class="container">
+        @Html.Sitecore().Placeholder("main")
+      </div>
+      <div id="push"></div>
+    </div>
+    @Html.Sitecore().ViewRendering("/Views/Common/Footer.cshtml")
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="@Url.Content("~/Content/js/jquery.min.js")"><\/script>')</script>
+    @Html.Raw(Bundle.JavaScript()
+      .WithDeferredLoad()
+      .Add("~/Content/js/bootstrap.js")
+      .Add("~/Content/js/prettify.js")
+      .Add("~/Content/js/jquery.validate.js")
+      .Add("~/Content/js/jquery.validate.unobtrusive.js")
+      .Add("~/Content/js/app.js")
+      .Render("~/Content/combined/bundle.js"))
+      
+    @MiniProfiler.RenderIncludes(useExistingjQuery:true)
+  </body>
+</html>

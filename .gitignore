@@ -1,0 +1,43 @@
+# VStudio
+[Oo]bj
+[Bb]in
+*.user
+*.suo
+*.[Cc]ache
+*.bak
+*.ncb
+*.log 
+*.DS_Store
+[Tt]humbs.db 
+Ankh.NoLoad
+# Resharper Ignore
+_ReSharper.*
+*.resharper
+
+#Sitecore Ignore
+dbs/*
+lib/Sitecore/*
+src/Website/App_Browsers/*
+!src/Website/App_Config/
+src/Website/App_Config/*
+!src/Website/App_Config/Include/
+src/Website/App_Config/Include/*
+!src/Website/App_Config/Include/ScBootstrap.config
+src/Website/App_Data/*
+src/Website/Content/combined/*
+src/Website/data/*
+src/Website/layouts/*
+src/Website/sitecore/*
+src/Website/sitecore modules/*
+src/Website/sitecore_files/*
+src/Website/temp/*
+src/Website/upload/*
+src/Website/xsl/*
+src/Website/Default.aspx.bak
+src/Website/default.css
+src/Website/default.htm.sitedown
+src/Website/default.js
+src/Website/Design.config
+src/Website/Global.asax
+src/Website/web.config
+src/Website/webedit.css

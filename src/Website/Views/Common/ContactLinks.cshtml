@@ -1,0 +1,11 @@
+﻿@model IEnumerable<ContactLink>
+@if (Model.Any()) {
+  <div class="well">
+  @foreach (var item in Model) {
+    <dl>
+      <dt><i class="icon-@item.Icon"></i>@item.Title</dt>
+      <dd>@item.Description</dd>
+    </dl>
+  }
+  </div>
+}

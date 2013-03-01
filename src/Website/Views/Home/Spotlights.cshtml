@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Spotlight>
+@{
+  if (Model.Any()) {
+    <div class="row marketing">
+      @foreach (var item in Model) {
+        <div class="span4">
+          <img class="img-circle" src="@item.Image.Src" alt="@item.Image.Alt" width="@item.Image.Width" height="@item.Image.Height">
+          <h2>@item.Title</h2>
+          <p>@item.Description</p>
+          <p><a class="btn" href="@item.Link.Url">@item.Link.Text &raquo;</a></p>
+        </div>
+      }
+      </div>
+  }     
+}

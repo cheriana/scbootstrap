@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Spotlight>
+@{
+  if (Model.Any()) {
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        @foreach (var item in Model) {
+        <div class="item @Html.Raw(item.Id == Model.First().Id ? "active" : "")">
+          <img src="@item.Image.Src" alt="@item.Image.Alt" width="@item.Image.Width" height="@item.Image.Height">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>@item.Title</h1>
+              <p class="lead">@item.Description</p>
+              <a class="btn btn-large btn-primary" href="@item.Link.Url">@item.Link.Text</a>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+  }
+}
+

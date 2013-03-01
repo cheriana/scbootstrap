@@ -1,0 +1,40 @@
+﻿@model Gallery
+@using PagedList
+@using PagedList.Mvc
+
+<div class="main-content">         
+  <div class="page-header">
+    <h2>@Model.Title</h2>
+    <blockquote>@Model.Teaser</blockquote>
+  </div>
+  <div class="row">
+    <section class="span9" role="main">
+      @Html.Sitecore().Controller("Common", "Breadcrumb")
+      <div class="thumbnails">
+        @{ var currentImage = (Image)ViewBag.CurrentImage; }
+        <div class="span9">
+          <a href="#" class="thumbnail">
+            <img src="@string.Concat(currentImage.Src, "?w=860&amp;as=1&amp;bc=ffffff")" alt="@currentImage.Alt" width="860" />
+          </a>
+        </div>
+      </div>
+      @Html.PagedListPager((IPagedList)ViewBag.OnePageOfImages, page => Url.RouteUrl("Sitecore", new { page }))
+    </section>
+    <aside class="span3" role="complementary">
+        @if (Model.Images.Any()) {
+        <ul class="thumbnails">
+        @for (var i = 0; i < Model.Images.Length; i++) {
+        <li class="span3">
+          <a href="@Url.RouteUrl("Sitecore", new { page = ViewBag.PageNumber + i + 1 })" title="@Model.Images[i].Alt" class="thumbnail">
+            <img src="@string.Concat(Model.Images[i].Src, "?w=260&amp;h=180&amp;as=1&amp;bc=ffffff")" alt="@Model.Images[i].Alt" width="260" height="180"/>
+          </a>
+        </li>
+        }
+        </ul>
+      }
+      else {
+        <div class="well span2">No more images</div>
+      }
+    </aside>
+  </div>
+</div>

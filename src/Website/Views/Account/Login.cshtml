@@ -1,0 +1,52 @@
+﻿@model LoginForm
+    
+@{ HtmlHelper.ClientValidationEnabled = true; 
+   HtmlHelper.UnobtrusiveJavaScriptEnabled = true; }
+
+<div class="main-content">         
+  <div class="page-header">
+    <h2>Title</h2>
+    <p>Teaser</p>
+  </div>
+  <div class="row">
+    <section class="span9" role="main">
+      @Html.Sitecore().Controller("Common", "Breadcrumb")
+      @using (Html.BeginRouteForm("Sitecore", FormMethod.Post, new { @class = "form-horizontal validate" } ))
+      {
+        <fieldset>
+          <legend>Login form</legend>
+          @Html.ValidationSummary(true, "", new { @class = "alert" } )
+          <div class="control-group">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" } )
+            <div class="controls">
+              @Html.TextBoxFor(m => m.Name, new { @class = "input-xlarge" } )
+              @Html.ValidationMessageFor(m => m.Name, "", new { @class = "help-inline" })
+            </div>
+          </div>
+          <div class="control-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label" } )
+            <div class="controls">
+              @Html.PasswordFor(m => m.Password, new { @class = "input-xlarge" })
+              @Html.ValidationMessageFor(m => m.Password, "", new { @class = "help-inline" })
+            </div>
+          </div>
+          <div class="control-group">
+            @Html.LabelFor(m => m.Persistent, new { @class = "control-label" } )
+            <div class="controls">
+              @Html.CheckBoxFor(m => m.Persistent)
+              @Html.ValidationMessageFor(m => m.Persistent, "", new { @class = "help-inline" })
+
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+          @Html.AntiForgeryToken()
+        </fieldset>
+      }
+    </section>
+    <aside class="span3" role="complementary">
+      @Html.Sitecore().Controller("Common", "ContactLinks")
+    </aside>
+  </div>
+</div>

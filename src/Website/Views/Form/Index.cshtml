@@ -1,0 +1,64 @@
+﻿@model ContactForm
+    
+@{ HtmlHelper.ClientValidationEnabled = true; 
+   HtmlHelper.UnobtrusiveJavaScriptEnabled = true; }
+
+<div class="main-content">         
+  <div class="page-header">
+    <h2>@Html.Sitecore().Field("Title")</h2>
+    <blockquote>@Html.Sitecore().Field("Teaser")</blockquote>
+  </div>
+  <div class="row">
+    <section class="span9" role="main">
+      @Html.Sitecore().Controller("Common", "Breadcrumb")
+      @Html.Sitecore().Field("Content")
+      @using (Html.BeginRouteForm("Sitecore", FormMethod.Post, new { @class = "form-horizontal validate" } ))
+      {
+        <fieldset>
+          <legend>Form</legend>
+          @Html.ValidationSummary(true, "", new { @class = "alert" } )
+          <div class="control-group">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" } )
+            <div class="controls">
+              @Html.TextBoxFor(m => m.Name, new { @class = "input-xlarge" } )
+              @Html.ValidationMessageFor(m => m.Name, "", new { @class = "help-inline" })
+            </div>
+          </div>
+          <div class="control-group">
+            @Html.LabelFor(m => m.AddressLine1, new { @class = "control-label" } )
+            <div class="controls">
+              @Html.TextBoxFor(m => m.AddressLine1, new { @class = "input-xlarge" } )
+            </div>
+          </div>
+          <div class="control-group">
+            @Html.LabelFor(m => m.AddressLine2, new { @class = "hide" } )
+            <div class="controls">
+              @Html.TextBoxFor(m => m.AddressLine2, new { @class = "input-xlarge" } )
+            </div>
+          </div>
+          <div class="control-group">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label" } )
+            <div class="controls">
+              @Html.TextBoxFor(m => m.Email, new { @class = "input-xlarge" } )
+              @Html.ValidationMessageFor(m => m.Email, "", new { @class = "help-inline" })
+            </div>
+          </div>
+          <div class="control-group">
+            @Html.LabelFor(m => m.Enquiry, new { @class = "control-label" } )
+            <div class="controls">
+              @Html.TextAreaFor(m => m.Enquiry, 5, 25, new { @class = "input-xlarge" } )
+              @Html.ValidationMessageFor(m => m.Enquiry, "", new { @class = "help-inline" })
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+          @Html.AntiForgeryToken()
+        </fieldset>
+      }
+    </section>
+    <aside class="span3" role="complementary">
+      @Html.Sitecore().Controller("Common", "ContactLinks")
+    </aside>
+  </div>
+</div>

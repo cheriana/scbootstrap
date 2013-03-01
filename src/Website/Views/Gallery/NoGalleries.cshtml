@@ -1,0 +1,16 @@
+﻿@model GalleryList
+
+<div class="main-content">         
+  <div class="page-header">
+    <h2>@Model.Title</h2>
+    <blockquote>@Model.Teaser</blockquote>
+  </div>
+  <div class="row">
+    <section class="span9" role="main">
+      @Html.Sitecore().Controller("Common", "Breadcrumb")
+      <div class="alert">No galleries found</div>
+    </section>
+    <aside class="span3" role="complementary">
+    </aside>
+  </div>
+</div>

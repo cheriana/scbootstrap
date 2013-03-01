@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Navigation>
+@if (Model.Any())
+{
+  <ul class="nav nav-tabs nav-stacked">
+  @foreach (var item in Model)
+  {
+    var active = item.Url.Equals("/" + ViewBag.PathInfo) ? " class=\"active\"" : string.Empty;
+    <li@Html.Raw(active)><a href="@item.Url">@item.MenuTitle</a></li>
+  }
+  </ul>
+}
