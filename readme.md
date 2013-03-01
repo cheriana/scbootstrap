@@ -30,6 +30,12 @@ Source code
 
 Grab the source code from [https://github.com/jorgelusar/scbootstrap][9].
 
+Post steps
+----------
+
+ - Set the addAspxExtension="false" in the LinkManager in the web.config
+ - Add on /sitecore/sites/site name="website" the loginPage="/login", create an extranet user, and then try to visit in the browser /about/secured. You should be redirected to the login page and be asked for credentials.
+
 
   [1]: https://code.google.com/p/autofac/
   [2]: https://github.com/AutoMapper/AutoMapper
