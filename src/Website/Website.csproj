@@ -58,6 +58,9 @@
     <Reference Include="nunit.util">
       <HintPath>..\..\lib\NUnit\nunit.util.dll</HintPath>
     </Reference>
+    <Reference Include="NUnitContrib.Web.TestExamples">
+      <HintPath>..\..\lib\NUnit\NUnitContrib.Web.TestExamples.dll</HintPath>
+    </Reference>
     <Reference Include="NUnitContrib.Web.TestRunner">
       <HintPath>..\..\lib\NUnit\NUnitContrib.Web.TestRunner.dll</HintPath>
     </Reference>
@@ -161,10 +164,6 @@
     <ProjectReference Include="..\Logic\Logic.csproj">
       <Project>{EFE0C0EB-BF35-43CE-8BE5-0D9186253E52}</Project>
       <Name>Logic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tests\Tests.csproj">
-      <Project>{C66E7543-28D9-40BD-85BF-1F1ED535E591}</Project>
-      <Name>Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
