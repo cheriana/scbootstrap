@@ -23,6 +23,7 @@ src/Website/App_Config/*
 !src/Website/App_Config/Include/
 src/Website/App_Config/Include/*
 !src/Website/App_Config/Include/ScBootstrap.config
+!src/Website/App_Config/Include/TestRunnerConfig.config
 src/Website/App_Data/*
 src/Website/Content/combined/*
 src/Website/data/*

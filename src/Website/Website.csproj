@@ -46,6 +46,21 @@
     <Reference Include="MiniProfiler">
       <HintPath>..\..\lib\MiniProfiler\MiniProfiler.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.core">
+      <HintPath>..\..\lib\NUnit\nunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.core.interfaces">
+      <HintPath>..\..\lib\NUnit\nunit.core.interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\lib\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.util">
+      <HintPath>..\..\lib\NUnit\nunit.util.dll</HintPath>
+    </Reference>
+    <Reference Include="NUnitContrib.Web.TestRunner">
+      <HintPath>..\..\lib\NUnit\NUnitContrib.Web.TestRunner.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.15.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\PagedList\PagedList.dll</HintPath>
@@ -147,6 +162,10 @@
       <Project>{EFE0C0EB-BF35-43CE-8BE5-0D9186253E52}</Project>
       <Name>Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tests\Tests.csproj">
+      <Project>{C66E7543-28D9-40BD-85BF-1F1ED535E591}</Project>
+      <Name>Tests</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\ScBootstrap.config" />
@@ -195,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Gallery\NoGalleries.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Config\Include\TestRunnerConfig.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
